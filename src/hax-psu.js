@@ -755,8 +755,9 @@ export class HaxPsu extends LitElement {
             <p>
             Penn State IT does not monitor websites and does not assume responsibility for any published content.
             The content authors are responsible for the content of their websites.
-            Use of this service is governed by <a href="https://security.psu.edu/awareness/psu-policies/" target="_blank" rel="nofollow noopener">Penn State policies and guidelines</a>, including 
-            <a href="https://policy.psu.edu/policies/ad54" target="_blank" rel="nofollow noopener">Penn State IT Web Services Policy</a>.
+            Use of this service is governed by <a href="https://security.psu.edu/awareness/psu-policies/" target="_blank" rel="noopener">Penn State policies and guidelines</a>, including 
+            <a href="https://policy.psu.edu/policies/ad54" target="_blank" rel="noopener">Penn State IT Web Services Policy</a>.<br/>
+            All pages must be compliant with <a href="https://policies.psu.edu/policies/ad69" target="_blank" rel="noopener">Accessibility Standards, Policy AD69</a>.
             </p>
           </div>
         </grid-plate>
@@ -835,7 +836,7 @@ export class HaxPsu extends LitElement {
               <rpg-character></rpg-character>
             </div>
             <p>Each RPG style character is unique to the user logging in and helps provide a humanizing and playful element to other aspects
-              of what otherwise would be a mundane administrative interface. Websites produced by HAX can be a mix of professional and platful
+              of what otherwise would be a mundane administrative interface. Websites produced by HAX can be a mix of professional and playful
               but the 8-bit design helps you designate between the admin task and what end-users see.
             </p>
             </div>
