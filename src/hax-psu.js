@@ -1,13 +1,14 @@
-import { LitElement, html, render, css, nothing } from 'lit';
+import { html, render, css, nothing } from 'lit';
 import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
 import '@shoelace-style/shoelace/dist/translations/en.js';
 import "@lrnwebcomponents/page-section/page-section.js";
 import "@lrnwebcomponents/future-terminal-text/future-terminal-text.js";
+import { DDD } from "@lrnwebcomponents/d-d-d/d-d-d.js";
 
 // Set the base path to the folder you copied Shoelace's assets to
 setBasePath('dist/shoelace');
 
-export class HaxPsu extends LitElement {
+export class HaxPsu extends DDD {
   static get properties() {
     return {
       title: { type: String },
@@ -19,7 +20,7 @@ export class HaxPsu extends LitElement {
   }
 
   static get styles() {
-    return css`
+    return [super.styles, css`
       :host {
         --hax-psu-square-1: var(--primary-color-1);
         --hax-psu-square-2: var(--primary-color-2);
@@ -351,15 +352,21 @@ export class HaxPsu extends LitElement {
         margin-right: 2em;
         padding-top: var(--ddd-spacing-5);
       }
-      footer a {
+      footer a,
+      footer a:-webkit-any-link {
+        font-family: var(--ddd-font-navigation);
+        font-size: var(--ddd-font-size-4xs);
+
         color: var(--link-color-2);
         font-weight: normal;
         text-decoration: none;
       }
-      footer a:hover {
+      footer a:hover,
+      footer a:hover:-webkit-any-link {
         text-decoration: underline;
       }
       footer ul {
+        display: block;
         list-style: none;
         padding: 0.5rem 0;
         margin: 0;
@@ -382,6 +389,10 @@ export class HaxPsu extends LitElement {
       footer ul li:last-child {
         border-right: none;
         padding-right: 0;
+      }
+
+      video-player {
+        font-size: var(--ddd-font-size-4xs);
       }
 
       #top {
@@ -498,7 +509,7 @@ export class HaxPsu extends LitElement {
           display: none;
         }
       }
-    `;
+    `];
   }
 
   firstUpdated(changedProperties) {
