@@ -2,6 +2,7 @@ import { LitElement, html, render, css, nothing } from 'lit';
 import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
 import '@shoelace-style/shoelace/dist/translations/en.js';
 import "@lrnwebcomponents/page-section/page-section.js";
+import "@lrnwebcomponents/future-terminal-text/future-terminal-text.js";
 
 // Set the base path to the folder you copied Shoelace's assets to
 setBasePath('dist/shoelace');
@@ -51,7 +52,6 @@ export class HaxPsu extends LitElement {
       }
 
       h1, h2, h3, h4, h5, h6 {
-        font-family: 'Roboto',Helvetica,Arial,Lucida,sans-serif;
         font-weight: bold;
         font-style: normal;
         text-transform: none;
@@ -142,9 +142,9 @@ export class HaxPsu extends LitElement {
         background-color: var(--bg-color-1);
       }
       grid-plate {
-        margin: 0 0 128px;
+        margin: 0 0 64px;
       }
-      grid-plate div {
+      grid-plate p {
         margin: 0 32px;
       }
       play-list {
@@ -174,6 +174,10 @@ export class HaxPsu extends LitElement {
       #section-6 {
         background-color: var(--bg-color-2);
       }
+
+      p[slot="entice"] {
+        padding: var(--ddd-spacing-2);
+      }
       
       .section.top {
         text-align: left;
@@ -182,30 +186,29 @@ export class HaxPsu extends LitElement {
         --page-section-padding: 32px 0;
       }
 
+      .section.top h1 .text {
+        font-size: var(--ddd-font-size-xl);
+      }
+
       .section.top h1 .hax {
         font-weight: bold;
         font-style: italic;
         font-family: 'Press Start 2P', sans-serif;
-        font-size: 3rem;
+        font-size: var(--ddd-font-size-l);
         display: inline-block;
         vertical-align: middle;
         margin-bottom: 4px;
+        line-height: 64px;
       }
 
       .section.top h1 .create {
         font-weight: bold;
         font-style: italic;
         font-family: 'Press Start 2P', sans-serif;
-        font-size: 3rem;
+        font-size: var(--ddd-font-size-m);
         display: inline-block;
         vertical-align: middle;
         margin-bottom: 4px;
-      }
-
-      .entice-wrapper {
-        display: flex;
-        padding: 0;
-        margin: 0 0 16px;
       }
 
       play-list::part(site-wrapper) {
@@ -214,15 +217,6 @@ export class HaxPsu extends LitElement {
 
       play-list::part(site-details) {
         margin: 0 16px;
-      }
-
-      play-list::part(site-type),
-      .psu-entice {
-        color: white;
-        background-color: #00000088;
-        padding: 8px;
-        font-size: 20px;
-        display:table;
       }
 
       play-list::part(site-description) {
@@ -239,7 +233,6 @@ export class HaxPsu extends LitElement {
 
       p {
         line-height: 32px;
-        font-size: 22px;
         margin: 0 0 32px 0;
         padding: 0;
       }
@@ -247,7 +240,6 @@ export class HaxPsu extends LitElement {
         margin: 0;
         padding: 0 0 8px 0;
         line-height: 42px;
-        font-size: 22px;
         text-transform: uppercase;
       }
 
@@ -277,19 +269,24 @@ export class HaxPsu extends LitElement {
         cursor: pointer;
         text-decoration: none;
         padding: 8px 16px;
-        font-size: 24px;
         background-color: transparent;
         color: var(--primary-color-3);
         border: 0;
         height: 64px;
         transition: all 0.3s ease-in-out;
+        font-family: var(--ddd-font-navigation);
+        font-size: var(--ddd-font-size-xxs);
       }
 
       .menu .menu-item button:hover,
       .menu .menu-item button:focus {
-        color: var(--secondary-color-1);
-        background-color: var(--primary-color-1);
-        text-decoration: underline;
+        color: white;
+        background-color: var(--ddd-theme-default-inventOrange);
+        text-decoration: none;
+      }
+
+      simple-cta {
+        margin-right: 16px;
       }
 
       .square {
@@ -335,31 +332,29 @@ export class HaxPsu extends LitElement {
 
       footer {
         background-image: linear-gradient(180deg,#002e69 0%,#001e44 60%)!important;
-        font-family: "Roboto Condensed",Impact,"Franklin Gothic Bold",sans-serif;
-        font-size: .95rem;
+        font-family: var(--ddd-font-navigation);
+        font-size: var(--ddd-font-size-4xs);
         overflow: hidden;
-        line-height: 26px;
         width: 100%;
-        border-bottom: solid 8px var(--secondary-color-2);
+        border-bottom: solid var(--ddd-spacing-2) var(--secondary-color-2);
       }
       .footer-inner {
         width: 80%;
         max-width: 1080px;
         margin: auto;
         position: relative;
-        padding: 1em;
+        padding: var(--ddd-spacing-10);
       }
       .footer-logo {
         float: left;
         max-width: 160px;
         margin-right: 2em;
-        padding-top: 20px;
+        padding-top: var(--ddd-spacing-5);
       }
       footer a {
         color: var(--link-color-2);
         font-weight: normal;
         text-decoration: none;
-        font-size: 0.95rem;
       }
       footer a:hover {
         text-decoration: underline;
@@ -476,7 +471,7 @@ export class HaxPsu extends LitElement {
         }
         #section-3 .container count-up {
           width: unset;
-          --count-up-number-font-size: 48px;
+          --count-up-number-font-size: 26px;
         }
         .section-style-1 {
           width: 100%;
@@ -510,12 +505,12 @@ export class HaxPsu extends LitElement {
     super.firstUpdated(changedProperties);
     setTimeout(() => {
       import("@lrnwebcomponents/simple-cta/simple-cta.js");
-      import("@lrnwebcomponents/future-terminal-text/future-terminal-text.js");
       import("@lrnwebcomponents/simple-img/simple-img.js");
       import("@lrnwebcomponents/scroll-button/scroll-button.js");
       import("@lrnwebcomponents/play-list/play-list.js");
       import("@lrnwebcomponents/grid-plate/grid-plate.js");
       import("@lrnwebcomponents/count-up/count-up.js");
+      import("@lrnwebcomponents/video-player/video-player.js");
       import("@lrnwebcomponents/rpg-character/rpg-character.js");
       import("@shoelace-style/shoelace/dist/components/carousel/carousel.js");
       import("@shoelace-style/shoelace/dist/components/carousel-item/carousel-item.js");
@@ -532,10 +527,8 @@ export class HaxPsu extends LitElement {
         (item) =>
           html`
             <div part="site-wrapper">
-              <simple-img loading="lazy" fetchpriority="low" decoding="async" src="https://screenshoturl.elmsln.vercel.app/api/screenshotUrl?quality=10&render=img&urlToCapture=${item.image}">
-              </simple-img>
               <div part="site-details">
-              <simple-cta slot="buttons" link="${item.url}" accent-color="blue" dark>${item.title}</simple-cta>
+              <simple-cta slot="buttons" link="${item.url}" hotline="" filled="" outlined="">${item.title}</simple-cta>
                 <div part="site-type"><strong>${item.type}</strong></div>
                 <p part="site-description">${item.description}</p>
               </div>
@@ -568,50 +561,50 @@ export class HaxPsu extends LitElement {
     this.examples = [
       {
         title: 'AA 100',
-        type: "course website",
-        description: 'Introduction to International Arts',
+        type: "College of Arts and Architecture",
+        description: 'Introduction to International Arts course',
         url: 'https://courses.hax.psu.edu/bto108/sites/aa100-su23/',
         image: 'https://oer.hax.psu.edu/bto108/sites/aa100-su23/module-four-identity-case-studies-in-france-italy-and-india/france/new-item'
       },
       {
         title: 'PHYS 211',
-        type: "course website",
-        description: 'Mechanics',
+        type: "Eberly College of Science",
+        description: 'Mechanics course',
         url: 'https://oer.hax.psu.edu/lul29/sites/phys211/',
         image: 'https://oer.hax.psu.edu/lul29/sites/phys211/week-3a-kinematics-of-projectile-motion-and-uniform-circular-motion/uniform-circular-motion'
       },
       {
         title: 'HAXCelence',
-        type: "website",
-        description: 'Our community site for advancing excellence in online teaching via HAX',
+        type: "Tutorial",
+        description: 'Teaching with HAX',
         url: 'https://oer.hax.psu.edu/bto108/sites/haxcellence/',
         image: 'https://oer.hax.psu.edu/bto108/sites/haxcellence/ontology'
       },
       {
         title: 'PHYS 212',
-        type: "course website",
-        description: 'Electricity and Magnetism',
+        type: "Eberly College of Science",
+        description: 'Electricity and Magnetism course',
         url: 'https://oer.hax.psu.edu/arz48/sites/phys212/',
         image: 'https://oer.hax.psu.edu/arz48/sites/phys212/'
       },
       {
         title: 'IST 256',
-        type: "course website",
-        description: 'Programming for the web',
+        type: "Information Sciences & Technology",
+        description: 'Programming for the web Course',
         url: 'https://oer.hax.psu.edu/bto108/sites/ist256/',
         image: 'https://oer.hax.psu.edu/bto108/sites/ist256/'
       },
       {
         title: 'The Sea Voyage',
-        type: "self-hosted resource",
+        type: "University Libraries",
         description: 'Digital Beaumont & Fletcher',
         url: 'https://tsv-dbfp.libraries.psu.edu',
         image: 'https://tsv-dbfp.libraries.psu.edu/content/basetext/basetext-act-02/'
       },
       {
         title: 'Eberly ODL',
-        type: "self-hosted website",
-        description: 'Custom site for Eberly Office of Digital Learning',
+        type: "Eberly College of Science",
+        description: 'Office of Digital Learning',
         url: 'https://odl.science.psu.edu/',
         image: 'https://odl.science.psu.edu/',
       },
@@ -655,9 +648,14 @@ export class HaxPsu extends LitElement {
     }, 8000);
 
     setTimeout(() => {
-      this.shadowRoot.querySelector('.create').innerHTML = "ANYTHING";
+      this.shadowRoot.querySelector('.create').innerHTML = "THE FUTURE";
       this.shadowRoot.querySelector('.create')._doGlitch();
     }, 12000);
+
+    setTimeout(() => {
+      this.shadowRoot.querySelector('.create').innerHTML = "ANYTHING";
+      this.shadowRoot.querySelector('.create')._doGlitch();
+    }, 16000);
   }
 
   render() {
@@ -675,18 +673,20 @@ export class HaxPsu extends LitElement {
         <a href="#section-4" tabindex="-1" class="menu-item"><button data-target="section-4">Users</button></a>
         <a href="#section-5" tabindex="-1" class="menu-item"><button data-target="section-5">Examples</button></a>
         <a href="#section-6" tabindex="-1" class="menu-item"><button data-target="section-6">About</button></a>
-        <a href="#section-7" tabindex="-1" class="menu-item"><button data-target="section-7">FAQ</button></a>
+        <a href="#section-7" tabindex="-1" class="menu-item"><button data-target="section-7">Docs</button></a>
+        <a href="#section-8" tabindex="-1" class="menu-item"><button data-target="section-8">FAQ</button></a>
       </div>
     </header>
     <main>
-      <page-section id="section-1" full class="section top" filter accent-color="blue" fold scroller scroller-label="Let's learn about HAX" image="${makeUrl('images/splash.jpg')}">
+      <page-section id="section-1" full class="section top" filter accent-color="blue" fold scroller scroller-label="Let's learn about HAX" image="${makeUrl('images/lion-statue.jpg')}">
         <h1><span class="text">Create <future-terminal-text white glitch class="create">WEBSITES</future-terminal-text></span>
           <div>
-            <span class="text">easily with </span><future-terminal-text glitch class="hax">HAX</future-terminal-text>
+            <span class="text">with </span><future-terminal-text glitch class="hax">HAX</future-terminal-text>
           </div>
         </h1>
-        <p class="entice-wrapper"><span class="psu-entice">Part of <strong>Penn State</strong>?</span></p>
-        <simple-cta slot="buttons" link="https://iam.hax.psu.edu/login.php" accent-color="blue" dark>Log in</simple-cta>
+        <p slot="entice">Part of <strong>Penn State</strong>?</p>
+        <simple-cta hotline filled outlined slot="buttons" link="https://iam.hax.psu.edu/login.php" accent-color="grey">Start building</simple-cta>
+        <simple-cta hide-icon filled white slot="buttons" link="https://oer.hax.psu.edu/bto108/sites/haxcellence/welcome" accent-color="grey">Learn HAX</simple-cta>
       </page-section>
       <page-section id="section-2" class="section" scroller scroller-label="By the numbers">
         <div class="section-style-1">
@@ -699,9 +699,9 @@ export class HaxPsu extends LitElement {
           </p>
         </div>
       </page-section>
-      <page-section id="section-3" class="section" accent-color="orange">
+      <page-section id="section-3" class="section" scroller scroller-label="Who is it for?">
       ${this.stats != null ? html`
-        <h2>By the numbers</h2>
+        <h2>Watch HAX grow</h2>
         <div class="container">
           <div class="square">
             <count-up end="${this.stats.site_count}" suffixtext=" sites">
@@ -723,24 +723,32 @@ export class HaxPsu extends LitElement {
       </page-section>
       <page-section id="section-4" accent-color="blue" bg="var(--primary-color-2)" filter fold class="section">
         <h2>Who is HAX for?</h2>
-        <grid-plate layout="1-1-1">
+        <grid-plate layout="1-1-1" style="margin-top:40px;">
           <p slot="col-1">
-            <strong>Faculty</strong> - Build a course website, a research website, or a personal website
+            <strong>Faculty</strong> - Build a course, a research website, or a personal site without
+            having to learn the technologies that power them. HAX reduces months to minutes and is a sustainable
+            way of building content so you can shine.
           </p>
+          <p slot="col-1"><strong>Focus on teaching</strong>, <em>not complexity!</em></p>
           <p slot="col-2">
-            <strong>Students</strong> - Build a portfolio, a resume, or a personal website
+            <strong>Students</strong> - Build a portfolio, a resume, or a personal website, then take it with you when
+            your time here has ended. HAX is portable, lightweight, requires no database, and is a great solution for 
+            students to stand up quick sites that they can set and forget about. It's also been developed by IST and
+            Arts and Architecture students making it that much more your platform!
           </p>
           <p slot="col-3">
-            <strong>Staff</strong> - Build a department website, a project website, or a personal website
+            <strong>Staff</strong> - Build a department website, a project website, or a personal website a throw away,
+            anything you need. Set up a quick site to talk about a project, download the site and throw it on another server.
+            Host content from github or anywhere else. HAX is there to help you get your job done faster with less training.
           </p>
         </grid-plate>
       </page-section>
-      <page-section id="section-5" class="section">
+      <page-section id="section-5" class="section" preset="lines">
         <h2>Examples</h2>
         <p>Here are some example of real courses and websites using HAX in production.</p>
         <play-list id="examplestemplate" loop></play-list>
       </page-section>
-      <page-section id="section-6" class="section" fold>
+      <page-section id="section-6" class="section" scroller scroller-label="Watch how to use HAX">
         <grid-plate layout="1-1">
           <div slot="col-1">
             <h3>About</h3>
@@ -762,8 +770,20 @@ export class HaxPsu extends LitElement {
           </div>
         </grid-plate>
       </page-section>
-      <page-section id="section-7" class="section">
-        <div class="section-style-1">
+      <page-section id="section-7" class="section" preset="video">
+        <video-player source="https://www.youtube.com/watch?v=bmsHBhGC8_Q" media-title="HAX New User tutorial"></video-player>
+      </page-section>
+      <page-section id="section-8" class="section" preset="antihero" scroller fold>
+      <h2>Dig in to learn more about HAX</h2>
+        <p>Need more tutorials? Dig into the <a href="https://oer.hax.psu.edu/bto108/sites/haxcellence/welcome">full documentation and user blocks section</a> to learn more about how HAX can help you!</p>
+        <ul>
+          <li><a href="https://oer.hax.psu.edu/bto108/sites/haxcellence/tutorials/migrate-data-to-hax">Migrating content to HAX</a></li>
+          <li><a href="https://oer.hax.psu.edu/bto108/sites/haxcellence/tutorials/block-usage">Block tutorials</a></li>
+          <li><a href="https://oer.hax.psu.edu/bto108/sites/haxcellence/the-gallery-of-online-excellence">The Gallery of Online Excelence</a></li>
+        </ul>
+      </page-section>
+        <page-section id="section-8" class="section">
+      <div class="section-style-1">
           <h2>Frequently Asked Questions</h2>
           <hr class="side-line" />
           <details>
