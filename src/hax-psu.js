@@ -30,7 +30,6 @@ export class HaxPsu extends DDD {
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        font-size: calc(10px + 2vmin);
         color: #444444;
         margin: 0 auto;
         background-color: white;
@@ -152,6 +151,10 @@ export class HaxPsu extends DDD {
         --sl-color-neutral-300: var(--primary-color-2);
         --sl-color-neutral-700: var(--secondary-color-2);
         --play-list-icon-color: var(--primary-color-1);
+      }
+      page-section ul,
+      page-section li {
+        font-size: var(--ddd-font-size-s);
       }
       #section-2 {
         background-color: var(--bg-color-1);
