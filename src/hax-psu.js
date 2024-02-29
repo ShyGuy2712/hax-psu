@@ -588,7 +588,6 @@ export class HaxPsu extends DDD {
     super.firstUpdated(changedProperties);
     setTimeout(() => {
       import("@lrnwebcomponents/simple-cta/simple-cta.js");
-      import("@lrnwebcomponents/simple-img/simple-img.js");
       import("@lrnwebcomponents/scroll-button/scroll-button.js");
       import("@lrnwebcomponents/play-list/play-list.js");
       import("@lrnwebcomponents/grid-plate/grid-plate.js");
