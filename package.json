@@ -19,6 +19,7 @@
     "@lrnwebcomponents/count-up": "^8.0.1",
     "@lrnwebcomponents/simple-cta": "^8.0.1",
     "@lrnwebcomponents/page-section": "^8.0.1",
+    "@lrnwebcomponents/accent-card": "^8.0.1",
     "@lrnwebcomponents/future-terminal-text": "^8.0.1",
     "@lrnwebcomponents/utils": "^8.0.1",
     "@lrnwebcomponents/simple-colors": "^8.0.1",

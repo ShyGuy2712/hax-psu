@@ -1144,6 +1144,16 @@
   dependencies:
     lit "^3.1.2"
 
+"@lrnwebcomponents/accent-card@^8.0.1":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@lrnwebcomponents/accent-card/-/accent-card-8.0.1.tgz#3ba61ab8f9ca4ffef9779ed70e38757c993d34a2"
+  integrity sha512-C5Vej3PDjuPHjiFmoTkLrGgnNK8AKkzklKsQZzjvYt+CWs9MlHW6TdWViz2KSRyy86sra3zKZ1dIBSwGM2H7Og==
+  dependencies:
+    "@lrnwebcomponents/intersection-element" "^8.0.1"
+    "@lrnwebcomponents/schema-behaviors" "^8.0.1"
+    "@lrnwebcomponents/simple-colors" "^8.0.1"
+    lit "^3.1.2"
+
 "@lrnwebcomponents/anchor-behaviors@^8.0.1":
   version "8.0.1"
   resolved "https://registry.yarnpkg.com/@lrnwebcomponents/anchor-behaviors/-/anchor-behaviors-8.0.1.tgz#d4f065412bdd2ba542a79264e36e902bd3cc2d0c"

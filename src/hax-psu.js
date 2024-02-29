@@ -154,7 +154,7 @@ export class HaxPsu extends DDD {
       }
       page-section ul,
       page-section li {
-        font-size: var(--ddd-font-size-s);
+        font-size: var(--ddd-font-size-xxs);
       }
       #section-2 {
         background-color: var(--bg-color-1);
@@ -171,11 +171,21 @@ export class HaxPsu extends DDD {
         --page-section-content-max-width: 90%;
       }
 
+      #section-4 grid-plate p {
+        margin: 8px 0 24px 0;
+        padding: 16px;
+        text-align: justify;
+      }
+
+      page-section p {
+        text-align: justify;
+      }
+
       #section-5 {
         background-color: var(--bg-color-1);
       }
 
-      #section-6 {
+      #section-7 {
         background-color: var(--bg-color-2);
       }
 
@@ -198,11 +208,10 @@ export class HaxPsu extends DDD {
         font-weight: bold;
         font-style: italic;
         font-family: 'Press Start 2P', sans-serif;
-        font-size: var(--ddd-font-size-l);
+        font-size: var(--ddd-font-size-m);
         display: inline-block;
         vertical-align: middle;
-        margin-bottom: 4px;
-        line-height: 64px;
+        margin-bottom: 8px;
       }
 
       .section.top h1 .create {
@@ -212,19 +221,33 @@ export class HaxPsu extends DDD {
         font-size: var(--ddd-font-size-m);
         display: inline-block;
         vertical-align: middle;
-        margin-bottom: 4px;
+        margin: 8px 0;
       }
 
       play-list::part(site-wrapper) {
         display: flex;
+        min-width: 150px;
+        text-align: center;
       }
 
       play-list::part(site-details) {
         margin: 0 16px;
+        padding: 0 12px;
       }
 
       play-list::part(site-description) {
         margin: 0;
+        padding: 0 12px;
+        font-size: var(--ddd-font-size-4xs);
+      }
+      play-list::part(simple-cta) {
+        font-size: var(--ddd-font-size-3xs);
+        margin: 4px 0;
+      }
+      play-list::part(site-type) {
+        margin: 0;
+        padding: 0 12px;
+        font-size: var(--ddd-font-size-3xs);
       }
 
       .section-style-1 {
@@ -312,7 +335,7 @@ export class HaxPsu extends DDD {
       future-terminal-text {
         overflow-wrap: break-all;
         line-height: 36px;
-        font-size: 18px;
+        height: 36px;
         text-align: left;
         --future-terminal-text-color: white;
       }
@@ -473,12 +496,12 @@ export class HaxPsu extends DDD {
           padding: 4px 8px;
           font-size: 12px;
           height: 48px;
-        }        
+        }
 
         #section-2,
         #section-3,
         #section-5,
-        #section-6 {
+        #section-7 {
           --page-section-content-padding: 0 2%;
           --page-section-content-width: 90%;
           --page-section-content-max-width: 90%;
@@ -492,15 +515,30 @@ export class HaxPsu extends DDD {
           padding: 16px 0;
         }
 
-        p {
+        page-section p {
           line-height: 24px;
-          font-size: 14px;
+          font-size: var(--ddd-font-size-4xs) !important;
           margin: 0 0 24px 0;
         }
         h3,h4,h5,h6 {
           padding: 0 0 8px 0;
           line-height: 32px;
-          font-size: 18px;
+          font-size: var(--ddd-font-size-3xs);
+        }
+      }
+
+      @media (max-width: 768px) and (orientation: landscape) {
+        page-section.top {
+          --page-section-padding: 0;
+          --page-section-content-padding: 0;
+        }
+        p[slot="entice"] {
+          display: none;
+        }
+        #top {
+          bottom: 24px;
+          --simple-icon-width: 32px;
+          --simple-icon-height: 32px;
         }
       }
 
@@ -509,7 +547,38 @@ export class HaxPsu extends DDD {
           display: none;
         }
         #top {
-          display: none;
+        bottom: 36px;
+        --simple-icon-width: 20px;
+        --simple-icon-height: 20px;
+      }
+        details {
+          max-height: unset;
+        }
+
+        .footer-links {
+          display: flex;
+        }
+        .footer-bottom {
+          display: flex;
+        }
+        .footer-inner {
+          padding: var(--ddd-spacing-4);
+        }
+        .footer-logo {
+          float: unset;
+          padding-top: var(--ddd-spacing-2);
+        }
+
+        .section.top h1 .create {
+          font-size: var(--ddd-font-size-xs);
+        }
+
+        .logo-wrapper {
+          position: absolute;
+        }
+        .menu {
+          width: auto;
+          margin-top: 48px;
         }
       }
     `];
@@ -542,7 +611,7 @@ export class HaxPsu extends DDD {
           html`
             <div part="site-wrapper">
               <div part="site-details">
-              <simple-cta slot="buttons" link="${item.url}" hotline="" filled="" outlined="">${item.title}</simple-cta>
+                <simple-cta slot="buttons" part="simple-cta" link="${item.url}" hotline="" filled="" outlined="">${item.title}</simple-cta>
                 <div part="site-type"><strong>${item.type}</strong></div>
                 <p part="site-description">${item.description}</p>
               </div>
@@ -588,8 +657,8 @@ export class HaxPsu extends DDD {
         image: 'https://oer.hax.psu.edu/lul29/sites/phys211/week-3a-kinematics-of-projectile-motion-and-uniform-circular-motion/uniform-circular-motion'
       },
       {
-        title: 'HAXCelence',
-        type: "Tutorial",
+        title: 'HAX Docs',
+        type: "HAXcellence",
         description: 'Teaching with HAX',
         url: 'https://oer.hax.psu.edu/bto108/sites/haxcellence/',
         image: 'https://oer.hax.psu.edu/bto108/sites/haxcellence/ontology'
@@ -645,31 +714,35 @@ export class HaxPsu extends DDD {
     });
     setTimeout(() => {
       this.shadowRoot.querySelector('.hax')._doGlitch();
-    }, 1000);
+    }, 300);
     setTimeout(() => {
       this.shadowRoot.querySelector('.hax')._doGlitch();
     }, 5000);
+    setTimeout(() => {
+      this.shadowRoot.querySelector('.hax')._doGlitch();
+    }, 8000);
+    setTimeout(() => {
+      this.shadowRoot.querySelector('.hax')._doGlitch();
+    }, 11000);
     setTimeout(() => {
       this.shadowRoot.querySelector('.hax')._doGlitch();
     }, 10000);
     setTimeout(() => {
       this.shadowRoot.querySelector('.create').innerHTML = "COURSES";
       this.shadowRoot.querySelector('.create')._doGlitch();
-    }, 4000);
+    }, 3000);
     setTimeout(() => {
       this.shadowRoot.querySelector('.create').innerHTML = "PORTFOLIOS";
       this.shadowRoot.querySelector('.create')._doGlitch();
-    }, 8000);
-
+    }, 6000);
     setTimeout(() => {
-      this.shadowRoot.querySelector('.create').innerHTML = "THE FUTURE";
+      this.shadowRoot.querySelector('.create').innerHTML = "BROCHURES";
       this.shadowRoot.querySelector('.create')._doGlitch();
-    }, 12000);
-
+    }, 9000);
     setTimeout(() => {
       this.shadowRoot.querySelector('.create').innerHTML = "ANYTHING";
       this.shadowRoot.querySelector('.create')._doGlitch();
-    }, 16000);
+    }, 12000);
   }
 
   render() {
@@ -686,9 +759,10 @@ export class HaxPsu extends DDD {
         <a href="#section-3" tabindex="-1" class="menu-item"><button data-target="section-3">Usage</button></a>
         <a href="#section-4" tabindex="-1" class="menu-item"><button data-target="section-4">Users</button></a>
         <a href="#section-5" tabindex="-1" class="menu-item"><button data-target="section-5">Examples</button></a>
-        <a href="#section-6" tabindex="-1" class="menu-item"><button data-target="section-6">About</button></a>
-        <a href="#section-7" tabindex="-1" class="menu-item"><button data-target="section-7">Docs</button></a>
-        <a href="#section-8" tabindex="-1" class="menu-item"><button data-target="section-8">FAQ</button></a>
+        <a href="#section-6" tabindex="-1" class="menu-item"><button data-target="section-6">Create</button></a>
+        <a href="#section-7" tabindex="-1" class="menu-item"><button data-target="section-7">About</button></a>
+        <a href="#section-8" tabindex="-1" class="menu-item"><button data-target="section-8">Docs</button></a>
+        <a href="#section-9" tabindex="-1" class="menu-item"><button data-target="section-9">FAQ</button></a>
       </div>
     </header>
     <main>
@@ -699,7 +773,7 @@ export class HaxPsu extends DDD {
           </div>
         </h1>
         <p slot="entice">Part of <strong>Penn State</strong>?</p>
-        <simple-cta hotline filled outlined slot="buttons" link="https://iam.hax.psu.edu/login.php" accent-color="grey">Start building</simple-cta>
+        <simple-cta hotline filled outlined slot="buttons" link="https://iam.hax.psu.edu/login.php" accent-color="grey">Start</simple-cta>
         <simple-cta hide-icon filled white slot="buttons" link="https://oer.hax.psu.edu/bto108/sites/haxcellence/welcome" accent-color="grey">Learn HAX</simple-cta>
       </page-section>
       <page-section id="section-2" class="section" scroller scroller-label="By the numbers">
@@ -715,7 +789,7 @@ export class HaxPsu extends DDD {
       </page-section>
       <page-section id="section-3" class="section" scroller scroller-label="Who is it for?">
       ${this.stats != null ? html`
-        <h2>Watch HAX grow</h2>
+        <h2>HAX keeps growing!</h2>
         <div class="container">
           <div class="square">
             <count-up end="${this.stats.site_count}" suffixtext=" sites">
@@ -735,7 +809,7 @@ export class HaxPsu extends DDD {
         </div>
         ` : nothing}
       </page-section>
-      <page-section id="section-4" accent-color="blue" bg="var(--primary-color-2)" filter fold class="section">
+      <page-section id="section-4" accent-color="blue" bg="var(--primary-color-2)" image="" scroller scroller-label="Examples built with HAX" filter fold class="section">
         <h2>Who is HAX for?</h2>
         <grid-plate layout="1-1-1" style="margin-top:40px;">
           <p slot="col-1">
@@ -757,20 +831,29 @@ export class HaxPsu extends DDD {
           </p>
         </grid-plate>
       </page-section>
-      <page-section id="section-5" class="section" preset="lines">
+      <page-section id="section-5" class="section" scroller scroller-label="Watch how to make a site">
         <h2>Examples</h2>
         <p>Here are some example of real courses and websites using HAX in production.</p>
         <play-list id="examplestemplate" loop></play-list>
       </page-section>
-      <page-section id="section-6" class="section" scroller scroller-label="Watch how to use HAX">
+      <page-section id="section-6" class="section" preset="video">
+        <h2>Got 80 seconds?</h2>
+        <video-player source="https://www.youtube.com/watch?v=aDmSFBJmWIg" media-title="Creating your first HAX site in 80 seconds"></video-player>
+      </page-section>
+      <page-section id="section-7" class="section" scroller scroller-label="Watch how to use HAX" preset="lines">
         <grid-plate layout="1-1">
           <div slot="col-1">
             <h3>About</h3>
             <p>
-              HAX is a service provided through a collaboration between Penn State College of Arts and Architecture,
-              Eberly College of Science, College of Information Sciences and Technology, and University libraries. The platform is powered
-              by HAXcms, originally developed to power 100s of high scale online courses. Interested in collaborating? Contact <a href="mailto:bmr1@psu.edu">Bill Rose, Product Owner</a>.
+              HAX is a service provided through a collaboration between 
+              <a href="https://arts.psu.edu/" target="_blank"><mark>Penn State College of Arts and Architecture</mark></a>,
+              <a href="https://science.psu.edu/" target="_blank"><strong>Eberly College of Science</strong></a>,
+              <a href="https://ist.psu.edu/" target="_blank"><strong>College of Information Sciences and Technology</strong></a>, and
+              <a href="https://libraries.psu.edu/" target="_blank"><strong>University libraries</strong></a>.              ,
+              The platform is powered by <em>HAXcms</em>, originally developed to power 100s of high scale online courses.
             </p>
+            <h4>Interested in collaboration?</h4>
+            <p>Contact <a href="mailto:bmr1@psu.edu">Bill Rose, Product Owner</a>.</p>
           </div>
           <div slot="col-2">
             <h3>Privacy policy</h3>
@@ -784,10 +867,7 @@ export class HaxPsu extends DDD {
           </div>
         </grid-plate>
       </page-section>
-      <page-section id="section-7" class="section" preset="video">
-        <video-player source="https://www.youtube.com/watch?v=bmsHBhGC8_Q" media-title="HAX New User tutorial"></video-player>
-      </page-section>
-      <page-section id="section-8" class="section" preset="antihero" scroller fold>
+      <page-section id="section-8" class="section" preset="antihero" scroller scroller-label="FAQ" fold>
       <h2>Dig in to learn more about HAX</h2>
         <p>Need more tutorials? Dig into the <a href="https://oer.hax.psu.edu/bto108/sites/haxcellence/welcome">full documentation and user blocks section</a> to learn more about how HAX can help you!</p>
         <ul>
@@ -796,7 +876,7 @@ export class HaxPsu extends DDD {
           <li><a href="https://oer.hax.psu.edu/bto108/sites/haxcellence/the-gallery-of-online-excellence">The Gallery of Online Excelence</a></li>
         </ul>
       </page-section>
-        <page-section id="section-8" class="section">
+        <page-section id="section-9" class="section">
       <div class="section-style-1">
           <h2>Frequently Asked Questions</h2>
           <hr class="side-line" />
@@ -886,14 +966,14 @@ export class HaxPsu extends DDD {
           </a>
         </div>
         <div class="footer-left">
-          <ul>
+          <ul class="footer-links">
             <li><a href="https://www.psu.edu/web-privacy-statement" role="link">Privacy Statement</a></li>
             <li><a href="https://policy.psu.edu/policies/ad85" role="link">Non Discrimination</a></li>
             <li><a href="https://www.psu.edu/accessibilitystatement" role="link">Accessibility</a></li>
             <li><a href="https://policy.psu.edu/policies/hr11" role="link">Equal Opportunity</a></li>
             <li><a href="https://www.psu.edu/legal-statements" role="link">Legal Statements</a></li>
           </ul>
-          <ul>
+          <ul class="footer-bottom">
             <li><a href="https://www.psu.edu/copyright-information/index.html" role="link">The Pennsylvania State University © <span id="YEAR">${this.year}</span></a></li>
             <li><a href="https://iam.hax.psu.edu/login.php" role="link">Login</a></li>
             <li class="footer-svg"><img loading="lazy" decoding="async" fetchpriority="high" src="${makeUrl('images/we-are-penn-state.svg')}" alt="We Are Penn State"></li>
