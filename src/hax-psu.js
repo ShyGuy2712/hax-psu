@@ -3,6 +3,7 @@ import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.j
 import '@shoelace-style/shoelace/dist/translations/en.js';
 import "@lrnwebcomponents/page-section/page-section.js";
 import "@lrnwebcomponents/future-terminal-text/future-terminal-text.js";
+import "@lrnwebcomponents/simple-cta/simple-cta.js";
 import { DDD } from "@lrnwebcomponents/d-d-d/d-d-d.js";
 
 // Set the base path to the folder you copied Shoelace's assets to
@@ -148,6 +149,7 @@ export class HaxPsu extends DDD {
         margin: 0 32px;
       }
       play-list {
+        padding: 64px;
         --sl-color-neutral-300: var(--primary-color-2);
         --sl-color-neutral-700: var(--secondary-color-2);
         --play-list-icon-color: var(--primary-color-1);
@@ -587,16 +589,21 @@ export class HaxPsu extends DDD {
   firstUpdated(changedProperties) {
     super.firstUpdated(changedProperties);
     setTimeout(() => {
-      import("@lrnwebcomponents/simple-cta/simple-cta.js");
       import("@lrnwebcomponents/scroll-button/scroll-button.js");
       import("@lrnwebcomponents/play-list/play-list.js");
       import("@lrnwebcomponents/grid-plate/grid-plate.js");
       import("@lrnwebcomponents/count-up/count-up.js");
       import("@lrnwebcomponents/video-player/video-player.js");
       import("@lrnwebcomponents/rpg-character/rpg-character.js");
-      import("@shoelace-style/shoelace/dist/components/carousel/carousel.js");
-      import("@shoelace-style/shoelace/dist/components/carousel-item/carousel-item.js");
       this.renderExamplesTemplate();
+      setTimeout(() => {
+        if (this.shadowRoot && window.location.hash) {
+          const nextTarget = this.shadowRoot.querySelector(`${window.location.hash}`);
+          if (nextTarget && nextTarget.scrollIntoView) {
+            nextTarget.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+      }, 1000);
     }, 0);
   }
 
@@ -786,7 +793,7 @@ export class HaxPsu extends DDD {
           </p>
         </div>
       </page-section>
-      <page-section id="section-3" class="section" scroller scroller-label="Who is it for?">
+      <page-section id="section-3" class="section">
       ${this.stats != null ? html`
         <h2>HAX keeps growing!</h2>
         <div class="container">
@@ -839,7 +846,7 @@ export class HaxPsu extends DDD {
         <h2>Got 80 seconds?</h2>
         <video-player source="https://www.youtube.com/watch?v=aDmSFBJmWIg" media-title="Creating your first HAX site in 80 seconds"></video-player>
       </page-section>
-      <page-section id="section-7" class="section" scroller scroller-label="Watch how to use HAX" preset="lines">
+      <page-section id="section-7" class="section" preset="lines">
         <grid-plate layout="1-1">
           <div slot="col-1">
             <h3>About</h3>
@@ -866,7 +873,7 @@ export class HaxPsu extends DDD {
           </div>
         </grid-plate>
       </page-section>
-      <page-section id="section-8" class="section" preset="antihero" scroller scroller-label="FAQ" fold>
+      <page-section id="section-8" class="section" preset="antihero" fold>
       <h2>Dig in to learn more about HAX</h2>
         <p>Need more tutorials? Dig into the <a href="https://oer.hax.psu.edu/bto108/sites/haxcellence/welcome">full documentation and user blocks section</a> to learn more about how HAX can help you!</p>
         <ul>

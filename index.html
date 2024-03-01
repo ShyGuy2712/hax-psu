@@ -84,7 +84,7 @@
     hax-psu:not(:defined) h1 {
       margin: 0 auto;
       color: white;
-      font-size: 5rem;
+      font-size: 48px;
       display: inline-block;
       vertical-align: middle;
       margin-bottom: 4px;
@@ -97,12 +97,13 @@
       font-style: normal;
       text-transform: none;
       text-decoration: none;
+      padding-right: 8vw;
     }
 
     hax-psu:not(:defined) h1 span.create,
     hax-psu:not(:defined) h1 span.hax {
       font-weight: bold;
-      font-size: 3rem;
+      font-size: 48px;
       font-style: italic;
       font-family: "Press Start 2P", Roboto, Helvetica, Arial, Lucida, sans-serif;
       display: inline-block;
@@ -127,7 +128,7 @@
       color: white;
       background-color: rgba(0, 0, 0, 0.533);
       padding: 8px;
-      font-size: 20px;
+      font-size: 16px;
     }
     hax-psu:not(:defined) .load-wrapper .entice-wrapper {
       display: flex;
@@ -137,28 +138,36 @@
       padding: 0 18%;
     }
     hax-psu:not(:defined) .load-wrapper a {
-      display: block;
+      display: inline-block;
       text-decoration: none;
     }
     hax-psu:not(:defined) .load-wrapper .btn {
       display: block;
       border-width: 2px;
-      border-color: var(--secondary-color-1);
+      border-color: var(--link-color-1);
       border-radius: 0px;
       line-height: 36px;
-      background-color: var(--secondary-color-1);
+      background-color: var(--link-color-1);
       padding: 10px 50px 10px 30px;
       text-transform: uppercase;
-      color: black;
+      color: white;
       font-family: Roboto, Helvetica, Arial, Lucida, sans-serif;
       font-style: italic;
       font-weight: 700;
       transition: color 300ms ease 0ms, background-color 300ms ease 0ms, border 300ms ease;
       margin: 0 18%;
-      padding: 16px;
-      font-size: 30px;
-      width: 200px;
+      padding: 8px;
+      font-size: 20px;
+      width: 150px;
       cursor: pointer;
+    }
+    hax-psu:not(:defined) .load-wrapper .btn2 {
+      color: black;
+      border-color: var(--secondary-color-1);
+      border-radius: 0px;
+      line-height: 36px;
+      background-color: var(--secondary-color-1);
+
     }
     hax-psu:not(:defined) .load-wrapper .btn:focus,
     hax-psu:not(:defined) .load-wrapper .btn:hover {
@@ -166,6 +175,11 @@
       border-color: white;
       color: white;
     }
+    hax-psu:not(:defined) .load-wrapper .btn-wrapper {
+      margin: 0 auto;
+      padding-right: 28vw;
+    }
+
   </style>
 </head>
 <body vocab="http://schema.org/" prefix="oer:http://oerschema.org cc:http://creativecommons.org/ns dc:http://purl.org/dc/terms/">
@@ -173,13 +187,18 @@
     <div class="load-wrapper">
       <h1><span class="text">Create <span class="create">WEBSITES</span></span>
         <div>
-          <span class="text">easily with </span><span class="hax">HAX</span>
+          <span class="text">with </span><span class="hax">HAX</span>
         </div>
       </h1>
       <p class="entice-wrapper"><span class="psu-entice">Part of <strong>Penn State</strong>?</span></p>
-      <a tabindex="-1" href="https://iam.hax.psu.edu/login.php">
-        <button class="btn">Start building &gt;</button>
-      </a>
+      <div class="btn-wrapper">
+        <a tabindex="-1" href="https://iam.hax.psu.edu/login.php">
+          <button class="btn">Start &gt;</button>
+        </a>
+        <a tabindex="-1" href="https://oer.hax.psu.edu/bto108/sites/haxcellence/welcome">
+          <button class="btn btn2">Learn HAX</button>
+        </a>
+      </div>
     </div>
   </hax-psu>
   <script type="module" src="./src/hax-psu.js"></script>
