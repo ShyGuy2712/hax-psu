@@ -989,7 +989,9 @@ export class HaxPsu extends DDD {
             </p>
             </div>
           </details>
-        </div>section-1
+        </div>
+      </page-section>
+      <footer>
       <div class="footer-inner">
         <div class="footer-logo">
           <a href="https://www.psu.edu" title="Penn State" role="link">
