@@ -493,6 +493,10 @@ export class HaxPsu extends DDD {
 
       @media (max-width: 768px) {
 
+        play-list {
+          padding: 4px;
+        }
+
         .menu .menu-item button {
           margin: 0px 4px;
           padding: 4px 8px;
@@ -529,10 +533,21 @@ export class HaxPsu extends DDD {
         }
       }
 
-      @media (max-width: 768px) and (orientation: landscape) {
+      @media (max-width: 780px) and (orientation: landscape) {
         page-section.top {
           --page-section-padding: 0;
           --page-section-content-padding: 0;
+        }
+        .section.top h1 .text {
+          font-size: var(--ddd-font-size-ml);
+        }
+
+        .section.top h1 .hax {
+          font-size: var(--ddd-font-size-l);          
+        }
+
+        .section.top h1 .create {
+          font-size: var(--ddd-font-size-xs);
         }
         p[slot="entice"] {
           display: none;
@@ -571,7 +586,20 @@ export class HaxPsu extends DDD {
           padding-top: var(--ddd-spacing-2);
         }
 
+        .section.top {
+          --ddd-spacing-20: 140px; /* hack so arrow looks better on menu being expanded on initial load */
+        }
+
+        .section.top h1 .text {
+          font-size: var(--ddd-font-size-l);
+        }
+
+        .section.top h1 .hax {
+          font-size: var(--ddd-font-size-m);          
+        }
+
         .section.top h1 .create {
+          display: block;
           font-size: var(--ddd-font-size-xs);
         }
 
@@ -760,7 +788,7 @@ export class HaxPsu extends DDD {
         </a>
       </div>
       <div class="menu">
-        <a href="https://iam.hax.psu.edu/login.php" tabindex="-1" class="menu-item menu-login"><button>Login</button></a>
+        <a href="/login.php" tabindex="-1" class="menu-item menu-login"><button>Login</button></a>
         <a href="#section-2" tabindex="-1" class="menu-item"><button data-target="section-2">HAX</button></a>
         <a href="#section-3" tabindex="-1" class="menu-item"><button data-target="section-3">Usage</button></a>
         <a href="#section-4" tabindex="-1" class="menu-item"><button data-target="section-4">Users</button></a>
@@ -779,7 +807,7 @@ export class HaxPsu extends DDD {
           </div>
         </h1>
         <p slot="entice">Part of <strong>Penn State</strong>?</p>
-        <simple-cta hotline filled outlined slot="buttons" link="https://iam.hax.psu.edu/login.php" accent-color="grey">Start</simple-cta>
+        <simple-cta hotline filled outlined slot="buttons" link="/login.php" accent-color="grey">Start</simple-cta>
         <simple-cta hide-icon filled white slot="buttons" link="https://oer.hax.psu.edu/bto108/sites/haxcellence/welcome" accent-color="grey">Learn HAX</simple-cta>
       </page-section>
       <page-section id="section-2" class="section" scroller scroller-label="By the numbers">
@@ -840,7 +868,7 @@ export class HaxPsu extends DDD {
       <page-section id="section-5" class="section" scroller scroller-label="Watch how to make a site">
         <h2>Examples</h2>
         <p>Here are some example of real courses and websites using HAX in production.</p>
-        <play-list id="examplestemplate" loop></play-list>
+        <play-list id="examplestemplate" loop pagination></play-list>
       </page-section>
       <page-section id="section-6" class="section" preset="video">
         <h2>Got 80 seconds?</h2>
@@ -891,7 +919,7 @@ export class HaxPsu extends DDD {
               Who can use HAX?
             </summary>
             <p>
-              Anyone, anywhere! Thanks to HAX being open source, all you need is a web server and a domain name to get started. We also support publishing directly to GitHub pages and other static publishing tools for advanced developer use-cases. If you are part of Penn State though you can just click <a href="https://iam.hax.psu.edu/login.php">log in</a> to get started immediately!
+              Anyone, anywhere! Thanks to HAX being open source, all you need is a web server and a domain name to get started. We also support publishing directly to GitHub pages and other static publishing tools for advanced developer use-cases. If you are part of Penn State though you can just click <a href="/login.php">log in</a> to get started immediately!
             </p>
           </details>
           <details>
@@ -961,10 +989,7 @@ export class HaxPsu extends DDD {
             </p>
             </div>
           </details>
-        </div>
-      </page-section>
-    </main>
-    <footer>
+        </div>section-1
       <div class="footer-inner">
         <div class="footer-logo">
           <a href="https://www.psu.edu" title="Penn State" role="link">
@@ -981,7 +1006,7 @@ export class HaxPsu extends DDD {
           </ul>
           <ul class="footer-bottom">
             <li><a href="https://www.psu.edu/copyright-information/index.html" role="link">The Pennsylvania State University © <span id="YEAR">${this.year}</span></a></li>
-            <li><a href="https://iam.hax.psu.edu/login.php" role="link">Login</a></li>
+            <li><a href="/login.php" role="link">Login</a></li>
             <li class="footer-svg"><img loading="lazy" decoding="async" fetchpriority="high" src="${makeUrl('images/we-are-penn-state.svg')}" alt="We Are Penn State"></li>
           </ul>
         </div>
