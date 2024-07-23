@@ -7,7 +7,8 @@ App backend and files so that we can build out the SPA for hax.psu to communicat
 To get started:
 
 ```bash
-npm init @open-wc
+npm install
+npm start
 # requires node 10 & npm 6 or higher
 ```
 
