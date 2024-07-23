@@ -1,6 +1,6 @@
 <?php
 define("IAM_INTERNALS", "login");
-include_once '../iam/system/lib/IAM.php';
+include_once '../../iam/system/lib/IAM.php';
 include_once IAM_ROOT . '/cores/' . HAXIAM_ACTIVE_CORE . '/system/backend/php/bootstrapHAX.php';
 include_once $HAXCMS->configDirectory . '/config.php';
 print $IAM->enterprise->userVar;
