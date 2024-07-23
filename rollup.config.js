@@ -46,17 +46,17 @@ export default {
           flatten: false
         },
         {
-          src: 'node_modules/@lrnwebcomponents/rpg-character/lib/',
+          src: 'node_modules/@haxtheweb/rpg-character/lib/',
           dest: `${outputDir}`,
           flatten: false
         },
         {
-          src: ['node_modules/@lrnwebcomponents/simple-icon/lib/svgs/*', '!elements/simple-icon/lib/svgs/elmsln-custom'],
+          src: ['node_modules/@haxtheweb/simple-icon/lib/svgs/*', '!elements/simple-icon/lib/svgs/elmsln-custom'],
           dest: `${outputDir}/svgs`,
           flatten: false
         },
         {
-          src: 'node_modules/@lrnwebcomponents/hax-iconset/lib/svgs/*',
+          src: 'node_modules/@haxtheweb/hax-iconset/lib/svgs/*',
           dest: `${outputDir}/svgs`,
           flatten: false
         },

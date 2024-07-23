@@ -1,11 +1,13 @@
 import { html, render, css, nothing } from 'lit';
 import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
 import '@shoelace-style/shoelace/dist/translations/en.js';
-import "@lrnwebcomponents/page-section/page-section.js";
-import "@lrnwebcomponents/future-terminal-text/future-terminal-text.js";
-import "@lrnwebcomponents/simple-cta/simple-cta.js";
-import { DDD } from "@lrnwebcomponents/d-d-d/d-d-d.js";
-
+import "@haxtheweb/page-section/page-section.js";
+import "@haxtheweb/future-terminal-text/future-terminal-text.js";
+import "@haxtheweb/simple-cta/simple-cta.js";
+import { DDD } from "@haxtheweb/d-d-d/d-d-d.js";
+import {
+  DDDAllStyles,
+} from "@haxtheweb/d-d-d/lib/DDDStyles.js";
 // Set the base path to the folder you copied Shoelace's assets to
 setBasePath('dist/shoelace');
 
@@ -21,7 +23,7 @@ export class HaxPsu extends DDD {
   }
 
   static get styles() {
-    return [super.styles, css`
+    return [DDDAllStyles, css`
       :host {
         --hax-psu-square-1: var(--primary-color-1);
         --hax-psu-square-2: var(--primary-color-2);
@@ -617,12 +619,12 @@ export class HaxPsu extends DDD {
   firstUpdated(changedProperties) {
     super.firstUpdated(changedProperties);
     setTimeout(() => {
-      import("@lrnwebcomponents/scroll-button/scroll-button.js");
-      import("@lrnwebcomponents/play-list/play-list.js");
-      import("@lrnwebcomponents/grid-plate/grid-plate.js");
-      import("@lrnwebcomponents/count-up/count-up.js");
-      import("@lrnwebcomponents/video-player/video-player.js");
-      import("@lrnwebcomponents/rpg-character/rpg-character.js");
+      import("@haxtheweb/scroll-button/scroll-button.js");
+      import("@haxtheweb/play-list/play-list.js");
+      import("@haxtheweb/grid-plate/grid-plate.js");
+      import("@haxtheweb/count-up/count-up.js");
+      import("@haxtheweb/video-player/video-player.js");
+      import("@haxtheweb/rpg-character/rpg-character.js");
       this.renderExamplesTemplate();
       setTimeout(() => {
         if (this.shadowRoot && window.location.hash) {
@@ -645,7 +647,7 @@ export class HaxPsu extends DDD {
           html`
             <div part="site-wrapper">
               <div part="site-details">
-                <simple-cta slot="buttons" part="simple-cta" link="${item.url}" hotline="" filled="" outlined="">${item.title}</simple-cta>
+                <simple-cta slot="buttons" part="simple-cta" link="${item.url}" hotline filled outlined>${item.title}</simple-cta>
                 <div part="site-type"><strong>${item.type}</strong></div>
                 <p part="site-description">${item.description}</p>
               </div>
@@ -807,17 +809,23 @@ export class HaxPsu extends DDD {
           </div>
         </h1>
         <p slot="entice">Part of <strong>Penn State</strong>?</p>
-        <simple-cta hotline filled outlined slot="buttons" link="/login.php" accent-color="grey">Start</simple-cta>
-        <simple-cta hide-icon filled white slot="buttons" link="https://oer.hax.psu.edu/bto108/sites/haxcellence/welcome" accent-color="grey">Learn HAX</simple-cta>
+        <simple-cta hotline filled outlined slot="buttons" link="/login.php">Start</simple-cta>
+        <simple-cta hide-icon light slot="buttons" link="https://oer.hax.psu.edu/bto108/sites/haxcellence/welcome">Learn HAX</simple-cta>
       </page-section>
       <page-section id="section-2" class="section" scroller scroller-label="By the numbers">
         <div class="section-style-1">
-          <h2>What is HAX?</h2>
-          <hr class="side-line" />
+          <h2 data-design-treatment="horz-full" data-primary="7">What is HAX?</h2>
           <p><strong>A radically simple approach to <em>web authoring</em> and <em>content ownership</em>.</strong></p>
-          <p>HAX is built on the premise
-            that any and everyone should be able to create rich, engaging content without the need for complex platforms, installations or vendor lock-in.
-            The HAX block system allows for sustainable content creation that is easy to click and build for novices while outputting clean, semantic HTML for experts.
+          <p>We believe <mark data-primary="1">everyone</mark> should be <mark data-primary="12">creative</mark> online <em>without understanding platforms or requiring specific vendors</em> just to have a voice online.
+            HAX unlocks web creativity via a block ecosystem that creates <mark data-primary="13">sustainable</mark> content that is <mark>fast</mark> and easy to <mark data-primary="18">maintain</mark>. HAX tools are easy enough for tech-novices to use while outputting clean, <mark data-primary="15">semantic</mark>, rich HTML like a web-veteran!
+          </p>
+          <h3 data-design-treatment="horz-50p" data-primary="16">Part of Penn State?</h3>
+          <p>
+            <simple-cta data-primary="8" data-accent="3" hotline filled outlined slot="buttons" link="/login.php">Get Started now!</simple-cta>
+          </p>
+          <h4 data-design-treatment="horz-25p" data-primary="18">Know terminal?</h4>
+          <p>
+            <code><strong>npm init @haxtheweb</strong></code>
           </p>
         </div>
       </page-section>
@@ -980,8 +988,6 @@ export class HaxPsu extends DDD {
               <rpg-character></rpg-character>
               <rpg-character></rpg-character>
               <rpg-character></rpg-character>
-              <rpg-character></rpg-character>
-              <rpg-character></rpg-character>
             </div>
             <p>Each RPG style character is unique to the user logging in and helps provide a humanizing and playful element to other aspects
               of what otherwise would be a mundane administrative interface. Websites produced by HAX can be a mix of professional and playful
@@ -991,6 +997,7 @@ export class HaxPsu extends DDD {
           </details>
         </div>
       </page-section>
+      </main>
       <footer>
       <div class="footer-inner">
         <div class="footer-logo">
