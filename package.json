@@ -24,6 +24,7 @@
     "@haxtheweb/utils": "^9.0.1",
     "@haxtheweb/simple-colors": "^9.0.1",
     "@haxtheweb/video-player": "^9.0.1",
+    "@haxtheweb/simple-img": "^9.0.1",
     "@haxtheweb/simple-icon": "^9.0.1",
     "@haxtheweb/hax-iconset": "^9.0.1",
     "@haxtheweb/d-d-d": "^9.0.1",

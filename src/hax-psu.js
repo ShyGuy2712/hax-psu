@@ -4,6 +4,7 @@ import '@shoelace-style/shoelace/dist/translations/en.js';
 import "@haxtheweb/page-section/page-section.js";
 import "@haxtheweb/future-terminal-text/future-terminal-text.js";
 import "@haxtheweb/simple-cta/simple-cta.js";
+import "@haxtheweb/simple-img/simple-img.js";
 import { DDD } from "@haxtheweb/d-d-d/d-d-d.js";
 import {
   DDDAllStyles
@@ -37,6 +38,10 @@ export class HaxPsu extends DDD {
         margin: 0 auto;
         background-color: white;
         overflow-x: hidden;
+      }
+
+      simple-img {
+        display: block;
       }
 
       .logo {
@@ -151,7 +156,6 @@ export class HaxPsu extends DDD {
         margin: 0 32px;
       }
       play-list {
-        padding: 64px;
         --sl-color-neutral-300: var(--primary-color-2);
         --sl-color-neutral-700: var(--secondary-color-2);
         --play-list-icon-color: var(--primary-color-1);
@@ -246,7 +250,8 @@ export class HaxPsu extends DDD {
       }
       play-list::part(simple-cta) {
         font-size: var(--ddd-font-size-3xs);
-        margin: 4px 0;
+        margin: 4px auto;
+        display: block;
       }
       play-list::part(site-type) {
         margin: 0;
@@ -647,7 +652,10 @@ export class HaxPsu extends DDD {
           html`
             <div part="site-wrapper">
               <div part="site-details">
-                <simple-cta slot="buttons" part="simple-cta" link="${item.url}" hotline filled outlined>${item.title}</simple-cta>
+                <a href="${item.url}" target="_blank">
+                  <simple-img height="200" width="400" quality="20" src="https://screenshoturl.open-apis.hax.cloud/api/screenshotUrl?width=1500&height=900&render=img&urlToCapture=${item.image}"></simple-img>
+                </a>
+                <simple-cta slot="buttons" part="simple-cta" target="_blank" link="${item.url}" hotline filled outlined>${item.title}</simple-cta>
                 <div part="site-type"><strong>${item.type}</strong></div>
                 <p part="site-description">${item.description}</p>
               </div>
@@ -679,11 +687,32 @@ export class HaxPsu extends DDD {
     this.title = 'HAX @ PSU';
     this.examples = [
       {
+        title: 'Customer Discovery 101',
+        type: "Invent Penn State",
+        description: 'Launchbox',
+        url: 'https://customerdiscovery101.launchbox.psu.edu/',
+        image: 'https://customerdiscovery101.launchbox.psu.edu/',
+      },
+      {
+        title: 'Eberly OER Courses',
+        type: "Eberly College of Science",
+        description: 'Office of Digital Learning',
+        url: 'https://oer.courses.science.psu.edu/',
+        image: 'https://oer.courses.science.psu.edu/',
+      },
+      {
         title: 'AA 100',
         type: "College of Arts and Architecture",
         description: 'Introduction to International Arts course',
         url: 'https://courses.hax.psu.edu/bto108/sites/aa100-su23/',
         image: 'https://oer.hax.psu.edu/bto108/sites/aa100-su23/module-four-identity-case-studies-in-france-italy-and-india/france/new-item'
+      },
+      {
+        title: 'The Sea Voyage',
+        type: "University Libraries",
+        description: 'Digital Beaumont & Fletcher',
+        url: 'https://tsv-dbfp.libraries.psu.edu',
+        image: 'https://tsv-dbfp.libraries.psu.edu/content/basetext/basetext-act-02/'
       },
       {
         title: 'PHYS 211',
@@ -700,35 +729,12 @@ export class HaxPsu extends DDD {
         image: 'https://oer.hax.psu.edu/bto108/sites/haxcellence/ontology'
       },
       {
-        title: 'PHYS 212',
-        type: "Eberly College of Science",
-        description: 'Electricity and Magnetism course',
-        url: 'https://oer.hax.psu.edu/arz48/sites/phys212/',
-        image: 'https://oer.hax.psu.edu/arz48/sites/phys212/'
-      },
-      {
         title: 'IST 256',
         type: "Information Sciences & Technology",
         description: 'Programming for the web Course',
         url: 'https://oer.hax.psu.edu/bto108/sites/ist256/',
         image: 'https://oer.hax.psu.edu/bto108/sites/ist256/'
       },
-      {
-        title: 'The Sea Voyage',
-        type: "University Libraries",
-        description: 'Digital Beaumont & Fletcher',
-        url: 'https://tsv-dbfp.libraries.psu.edu',
-        image: 'https://tsv-dbfp.libraries.psu.edu/content/basetext/basetext-act-02/'
-      },
-      {
-        title: 'Eberly ODL',
-        type: "Eberly College of Science",
-        description: 'Office of Digital Learning',
-        url: 'https://odl.science.psu.edu/',
-        image: 'https://odl.science.psu.edu/',
-      },
-
-      
     ];
     this.stats = {};
     this.year = new Date().getFullYear();
