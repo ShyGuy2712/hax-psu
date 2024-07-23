@@ -652,8 +652,8 @@ export class HaxPsu extends DDD {
           html`
             <div part="site-wrapper">
               <div part="site-details">
-                <a href="${item.url}" target="_blank">
-                  <simple-img height="200" width="400" quality="20" src="https://screenshoturl.open-apis.hax.cloud/api/screenshotUrl?width=1500&height=900&render=img&urlToCapture=${item.image}"></simple-img>
+                <a href="${item.url}" target="_blank" title="${item.title}: ${item.type}">
+                  <simple-img height="250" width="400" quality="40" src="https://screenshoturl.open-apis.hax.cloud/api/screenshotUrl?width=1500&height=900&render=img&urlToCapture=${item.image}"></simple-img>
                 </a>
                 <simple-cta slot="buttons" part="simple-cta" target="_blank" link="${item.url}" hotline filled outlined>${item.title}</simple-cta>
                 <div part="site-type"><strong>${item.type}</strong></div>
@@ -705,7 +705,7 @@ export class HaxPsu extends DDD {
         type: "College of Arts and Architecture",
         description: 'Introduction to International Arts course',
         url: 'https://courses.hax.psu.edu/bto108/sites/aa100-su23/',
-        image: 'https://oer.hax.psu.edu/bto108/sites/aa100-su23/module-four-identity-case-studies-in-france-italy-and-india/france/new-item'
+        image: 'https://oer.hax.psu.edu/bto108/sites/aa100-su23/'
       },
       {
         title: 'The Sea Voyage',

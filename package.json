@@ -1,9 +1,9 @@
 {
   "name": "hax-psu",
-  "description": "Webcomponent hax-psu following open-wc recommendations",
-  "license": "MIT",
-  "author": "hax-psu",
-  "version": "0.0.0",
+  "description": "HAX.psu homepage",
+  "license": "Apache-2.0",
+  "author": "btopro",
+  "version": "9.0.1",
   "scripts": {
     "build": "rimraf dist && rollup -c rollup.config.js && npm run analyze -- --exclude dist built && rm -rf built && cp -r dist built && cp -r env/* built/",
     "start:build": "web-dev-server --root-dir dist --app-index index.html --open",
