@@ -5,7 +5,7 @@
   "author": "btopro",
   "version": "9.0.1",
   "scripts": {
-    "build": "rimraf dist && rollup -c rollup.config.js && npm run analyze -- --exclude dist built && rm -rf built && cp -r dist built && cp -r env/* built/",
+    "build": "rimraf dist && rollup -c rollup.config.js && npm run analyze -- --exclude dist built && rm -rf built && cp -r dist built && cp -r env/* built/ && cp env/.htaccess built/",
     "start:build": "web-dev-server --root-dir dist --app-index index.html --open",
     "analyze": "cem analyze --litelement",
     "start": "web-dev-server"
