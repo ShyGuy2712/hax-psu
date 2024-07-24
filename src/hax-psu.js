@@ -741,7 +741,7 @@ export class HaxPsu extends DDD {
     this.image = '';
     // these stats come from nightly rebuilds against STAGING data
     // to avoid computation on live but is mirrored content from day prior
-    fetch(`https://haxapi.vercel.app/api/services/stats/haxPsuUsage`).then((res) => {
+    fetch(`https://open-apis.hax.cloud/api/services/stats/haxPsuUsage`).then((res) => {
       if (res.ok) {
         return res.json();
       }
