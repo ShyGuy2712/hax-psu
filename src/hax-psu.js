@@ -453,6 +453,14 @@ export class HaxPsu extends DDD {
         background-color: var(--bg-color-2);
       }
 
+      details[open] summary:hover,
+      details[open] summary:focus {
+        background-color: light-dark(
+      var(--ddd-theme-default-limestoneMaxLight),
+      var(--ddd-theme-default-potentialMidnight)
+    );
+      }
+
       details[open] summary ~ * {
         animation: sweep .5s ease-in-out;
         padding: 16px;
