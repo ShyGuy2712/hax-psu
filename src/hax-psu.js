@@ -1021,11 +1021,11 @@ export class HaxPsu extends DDD {
         </div>
         <div class="footer-left">
           <ul class="footer-links">
-            <li><a href="https://www.psu.edu/web-privacy-statement" role="link">Privacy Statement</a></li>
+            <li><a href="https://psu.edu/web-privacy-statement" role="link">Privacy Statement</a></li>
             <li><a href="https://policy.psu.edu/policies/ad85" role="link">Non Discrimination</a></li>
-            <li><a href="https://www.psu.edu/accessibilitystatement" role="link">Accessibility</a></li>
+            <li><a href="https://psu.edu/accessibilitystatement" role="link">Accessibility</a></li>
             <li><a href="https://policy.psu.edu/policies/hr11" role="link">Equal Opportunity</a></li>
-            <li><a href="https://www.psu.edu/legal-statements" role="link">Legal Statements</a></li>
+            <li><a href="https://psu.edu/legal-statements" role="link">Legal Statements</a></li>
           </ul>
           <ul class="footer-bottom">
             <li><a href="https://www.psu.edu/copyright-information/index.html" role="link">The Pennsylvania State University © <span id="YEAR">${this.year}</span></a></li>
